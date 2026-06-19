@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 日常查询与延伸阅读手记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f7f6f2;
+            color: #2c2b28;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* ---------- 深色头图 ---------- */
+        .hero {
+            background: linear-gradient(145deg, #1a1f2c 0%, #262e3f 100%);
+            color: #edeae3;
+            padding: 4rem 2rem 3.5rem;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .hero .subhead {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #c8c5bb;
+            max-width: 600px;
+            border-left: 4px solid #d97756;
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero .overline {
+            display: inline-block;
+            background: rgba(255,255,255,0.08);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            color: #cfd0d4;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(2px);
+        }
+
+        /* ---------- 正文区 ---------- */
+        .post-title {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0.4rem;
+            color: #1e1d1b;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #8b8882;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e3dfd8;
+            padding-bottom: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .post-meta span {
+            background: #edebe6;
+            padding: 0.1rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #5a5853;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #3e3c37;
+            background: #f0ede7;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #d97756;
+        }
+
+        p {
+            margin-bottom: 1.6rem;
+            text-align: justify;
+        }
+
+        a {
+            color: #c05a3a;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            transition: color 0.15s, background 0.15s;
+        }
+
+        a:hover {
+            color: #8f3f27;
+            background: rgba(208, 104, 69, 0.08);
+            text-decoration-color: #c05a3a;
+        }
+
+        .pull-quote {
+            background: #f2efe9;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0;
+            border-radius: 24px;
+            font-style: normal;
+            font-weight: 400;
+            color: #3d3a34;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2ddd4;
+            position: relative;
+        }
+
+        .pull-quote::before {
+            content: "📌";
+            position: absolute;
+            left: -0.5rem;
+            top: -0.5rem;
+            background: #d97756;
+            color: white;
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .pull-quote strong {
+            color: #2c2b28;
+        }
+
+        .highlight-block {
+            background: #ffffff;
+            padding: 1.2rem 1.8rem;
+            border-radius: 16px;
+            border: 1px solid #e6e1d9;
+            margin: 1.8rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .highlight-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-block li {
+            padding: 0.4rem 0 0.4rem 1.6rem;
+            position: relative;
+            margin-bottom: 0.2rem;
+        }
+
+        .highlight-block li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #d97756;
+            font-weight: 600;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d6d0c6, transparent);
+            margin: 2.5rem 0;
+        }
+
+        .faq-summary {
+            background: #f2efe9;
+            padding: 1.6rem 2rem;
+            border-radius: 24px;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .faq-summary h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #1e1d1b;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: #3d3a34;
+        }
+
+        .faq-item strong::before {
+            content: "Q: ";
+            color: #d97756;
+            font-weight: 700;
+        }
+
+        .faq-item p {
+            margin-bottom: 0.3rem;
+            color: #55524c;
+            font-size: 0.95rem;
+        }
+
+        .footnote {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0dbd2;
+            font-size: 0.9rem;
+            color: #77746c;
+        }
+
+        .footnote a {
+            font-weight: 400;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem 1rem 3rem;
+            }
+            .hero {
+                padding: 2.5rem 1.2rem 2.5rem;
+                border-radius: 0 0 28px 28px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .post-title {
+                font-size: 1.6rem;
+            }
+            .intro {
+                font-size: 1.05rem;
+                padding: 1rem 1.2rem;
+            }
+            .pull-quote {
+                padding: 1.2rem 1.4rem;
+            }
+            .faq-summary {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 深色头图 -->
+        <div class="hero">
+            <div class="overline">· 日常检索笔记 ·</div>
+            <h1>对照、延伸与<br>随手查找的乐趣</h1>
+            <div class="subhead">从一次查询开始，慢慢走完一整条小径</div>
+        </div>
+
+        <!-- 文章标题 & 元信息 -->
+        <h2 class="post-title">翻查之间，总有些意外收获</h2>
+        <div class="post-meta">
+            <span># 日常随笔</span>
+            <span># 查询手记</span>
+            <span>☕ 阅读约 5 分钟</span>
+        </div>
+
+        <!-- 导语 -->
+        <div class="intro">
+            很多时候打开 <a href="https://homesite-i-game.com.cn">爱游戏</a> 只是为了一款游戏的发售日期，或者某个机制是否修正。但每次都会多停留一会儿，看看相关文章、玩家笔记，然后打开另一个标签页继续查。
+        </div>
+
+        <!-- 正文段落 -->
+        <p>
+            前阵子想确认某个独立游戏的中文名到底怎么叫，随手搜到了<a href="https://homesite-i-game.com.cn">爱游戏</a>上的条目。页面很干净，没有花里胡哨的弹窗，条目下还附带了几篇延伸阅读，链接到开发者的访谈和社区讨论。那种感觉就像在图书馆里抽出一本书，发现书签里夹着前人留下的便条。
+        </p>
+        <p>
+            后来养成了习惯：每周花半小时把玩过的作品在<a href="https://homesite-i-game.com.cn">爱游戏</a>上标记一下，顺便看看别人写的短评。有些游戏通关很久了，再读到别人对某个场景的解读，会突然想起自己当时忽略的细节。这大概就是对照的乐趣——不是评判，而是彼此照亮。
+        </p>
+
+        <div class="pull-quote">
+            <strong>延伸阅读提示：</strong> 如果你也习惯在玩游戏时截图做笔记，不妨试试把截图里的文字和游戏内百科对照着看。很多设定藏在意想不到的角落，<a href="https://homesite-i-game.com.cn">爱游戏</a>上的考据帖经常能补上最后一块拼图。
+        </div>
+
+        <p>
+            上个月为了写一篇关于关卡设计的短文，在站内来回切换了七八个条目，把同一个游戏的不同版本、更新日志、玩家反馈都过了一遍。信息不算新鲜，但放在一起就有了纵深感。最让我意外的，是发现一个五年前的老帖子里，有人预测的机制走向居然和后来的更新完全吻合——那种跨越时间的印证，比攻略本身更让人着迷。
+        </p>
+
+        <div class="highlight-block">
+            <ul>
+                <li>查询时多看两眼“相关条目”，经常能找到冷门但有趣的对照内容</li>
+                <li>利用站内的“引用”功能保存自己感兴趣的段落，方便以后回看</li>
+                <li>别忽略编辑历史——改动记录有时比正文信息量还大</li>
+            </ul>
+        </div>
+
+        <p>
+            当然，不是每次查询都带着明确目的。有时候只是想确认一个数值，结果顺着链接一路点下去，读完了某个系列的全部设定解析。这种漫游式的阅读，最后总会回到<a href="https://homesite-i-game.com.cn">爱游戏</a>——它像是一个枢纽，把零散的知识点缝合在一起。那些原本孤立的游戏名、机制词条、人物背景，因为超链接的存在，变成了一张可以随意漫步的地图。
+        </p>
+
+        <hr>
+
+        <!-- FAQ 摘要（轻量） -->
+        <div class="faq-summary">
+            <h3>常见小疑惑 · 随手记</h3>
+            <div class="faq-item">
+                <strong>在爱游戏上找不到我玩的那款冷门游戏怎么办？</strong>
+                <p>可以尝试用英文原名或开发者名搜索，部分条目可能尚未收录中文译名。另外，站内用户创建的“待收录”列表也值得一看，有时候能找到同好整理的资源链接。</p>
+            </div>
+            <div class="faq-item">
+                <strong>延伸阅读的链接太多，从哪里开始比较好？</strong>
+                <p>优先看条目页面底部的“参考资料”和“外部链接”，通常来自开发者、学术文章或深度访谈，质量比较稳定。社区讨论帖可以作为补充，但注意甄别版本时效性。</p>
+            </div>
+            <div class="faq-item">
+                <strong>怎么把找到的信息保存下来？</strong>
+                <p>除了浏览器书签，可以试试用本地笔记软件配合站内引用功能。我习惯把条目链接和关键段落截图放在一个文档里，标注好日期，回头翻查非常方便。</p>
+            </div>
+        </div>
+
+        <p>
+            说到底，查询和阅读是一回事。我们打开一个页面，不是为了找到唯一正确的答案，而是为了在对照中看到更多侧面。<a href="https://homesite-i-game.com.cn">爱游戏</a>吸引我的地方，恰恰是它不急着给出结论，而是把资料、观点、线索都摊开，让每个人自己去连接。这种“未完成”的状态，反而让人愿意一遍遍回来。
+        </p>
+
+        <div class="footnote">
+            <p>— 以上是某次深夜翻查后的零碎记录。如果你也有类似的查询习惯，或者想看看不同人对同一款游戏的解读，或许 <a href="https://homesite-i-game.com.cn">爱游戏</a> 能成为你下一个出发的地方。</p>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sky94hird.github.io/homesite-i-game-com-cn/sitemap.xml

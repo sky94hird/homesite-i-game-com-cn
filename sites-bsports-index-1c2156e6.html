@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · B体育 访问与服务概览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e1e2a;
+      background: #f8f9fb;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b0c14 0%, #1b1e2e 80%);
+      padding: 3.5rem 1.5rem 4rem;
+      text-align: center;
+      color: #e6e9f0;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto 1.8rem;
+      opacity: 0.85;
+      color: #c8cfde;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #b9c2d6;
+    }
+
+    /* 全局导航（顶部） */
+    .topnav {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 1rem 1.5rem;
+      background: #f8f9fb;
+      border-bottom: 1px solid #e2e5ec;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .topnav a {
+      color: #2b2e3f;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border 0.2s;
+    }
+
+    .topnav a:hover {
+      border-bottom-color: #ce4b3e;
+    }
+
+    /* 主内容区 — 浅色底色 */
+    .main-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    /* 核心介绍段落 */
+    .intro-section {
+      background: #ffffff;
+      padding: 2rem 2.2rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      margin-bottom: 3rem;
+    }
+
+    .intro-section h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: #1a1c29;
+    }
+
+    .intro-section p {
+      margin-bottom: 1.2rem;
+      color: #2f3142;
+    }
+
+    .intro-section a {
+      color: #ce4b3e;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    .intro-section a:hover {
+      color: #a13228;
+    }
+
+    .highlight-box {
+      background: #f4f6fc;
+      border-left: 4px solid #ce4b3e;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0 0.5rem;
+      border-radius: 0 12px 12px 0;
+      font-size: 0.98rem;
+    }
+
+    /* 三个场景模块（卡片） */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin: 2.8rem 0;
+    }
+
+    .scenario-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.6rem 2.2rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.02);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #eef1f5;
+    }
+
+    .scenario-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+    }
+
+    .scenario-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+      letter-spacing: -0.2px;
+      color: #1a1c29;
+    }
+
+    .scenario-card p {
+      font-size: 0.95rem;
+      color: #3e4055;
+      margin-bottom: 0.6rem;
+    }
+
+    .scenario-card .card-note {
+      display: inline-block;
+      background: #f2f4fa;
+      padding: 0.25rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #5b5f77;
+      margin-top: 0.5rem;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-section {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      margin: 2rem 0 1rem;
+    }
+
+    .faq-section h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1.6rem;
+      color: #1a1c29;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #edf0f5;
+      padding: 1rem 0;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1e2032;
+      margin-bottom: 0.3rem;
+      font-size: 1.02rem;
+    }
+
+    .faq-item p {
+      color: #404255;
+      font-size: 0.95rem;
+    }
+
+    .faq-item a {
+      color: #ce4b3e;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+    }
+
+    /* 提示/简洁引用 */
+    .tip-note {
+      background: #eef1f8;
+      border-radius: 20px;
+      padding: 1rem 1.6rem;
+      text-align: center;
+      margin: 2.2rem 0 0.5rem;
+      font-size: 0.95rem;
+      color: #262838;
+    }
+
+    .tip-note a {
+      color: #ce4b3e;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    /* 响应式 */
+    @media (max-width: 900px) {
+      .scenario-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .scenario-grid {
+        grid-template-columns: 1fr;
+      }
+      .topnav {
+        gap: 1.2rem;
+      }
+      .intro-section, .faq-section {
+        padding: 1.5rem 1.2rem;
+      }
+      .hero {
+        padding: 2.5rem 1rem 3rem;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem 2.5rem;
+      color: #6e738b;
+      font-size: 0.85rem;
+      border-top: 1px solid #e2e5ec;
+      background: #f8f9fb;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="#intro">概述</a>
+  <a href="#scenarios">使用场景</a>
+  <a href="#faq">常见说明</a>
+  <a href="#tips">提示</a>
+</nav>
+
+<header class="hero">
+  <h1>B体育 · 简明服务指南</h1>
+  <p>围绕平台访问与功能场景的中立参考，为用户提供清晰、克制的信息框架。</p>
+  <span class="tagline">信息密度 · 务实视角</span>
+</header>
+
+<div class="main-content">
+
+  <!-- 核心介绍 -->
+  <section class="intro-section" id="intro">
+    <h2>关于 B体育 服务</h2>
+    <p>
+      作为一种数字化体育互动平台，<a href="https://sites-bsports.com">B体育</a> 主要提供赛事信息聚合、实时数据呈现以及社区化讨论空间。用户可通过平台浏览各类体育项目的最新动态、赛程变化与统计数据。平台不参与任何投注、博彩及资金交易环节，仅聚焦于信息展示与公共服务。
+    </p>
+    <p>
+      以下内容从“简明指南”角度，梳理平台的主要功能场景与访问注意事项，帮助新用户快速建立合理预期。所有信息均基于公开资料整理，不构成任何操作建议。
+    </p>
+    <div class="highlight-box">
+      ⚡ 基于实务体验：以下模块覆盖日常中最常涉及的三个信息场景，并附有常见疑问摘要。
+    </div>
+  </section>
+
+  <!-- 三个场景模块 -->
+  <div class="scenario-grid" id="scenarios">
+    <div class="scenario-card">
+      <h3>赛事动态浏览</h3>
+      <p>通过 <a href="https://sites-bsports.com">B体育</a> 可获取多联赛的实时比分、积分榜及赛程预告。界面以数据卡片形式呈现，支持按联赛、日期或队伍筛选。</p>
+      <p>适合快速查阅当日焦点赛事及历史交锋记录。</p>
+      <span class="card-note">数据更新延迟通常低于 60 秒</span>
+    </div>
+    <div class="scenario-card">
+      <h3>深度统计参考</h3>
+      <p>平台整合了球队与球员的赛季统计，包含射门、控球率、犯规趋势等维度。用户可横向对比不同赛季或联赛的数据表现。</p>
+      <p>统计模块不含预测或倾向性结论，仅提供原始数据视图。</p>
+      <span class="card-note">覆盖 20+ 主流联赛</span>
+    </div>
+    <div class="scenario-card">
+      <h3>社区讨论与信息流</h3>
+      <p>平台设有主题讨论区，用户可围绕比赛、转会、战术等话题发布观点。所有内容需遵守社区指引，平台不对第三方发言背书。</p>
+      <p>信息流按时间排序，支持关键词检索与收藏。</p>
+      <span class="card-note">建议自行核验重要信息</span>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <section class="faq-section" id="faq">
+    <h3>常见说明</h3>
+    <div class="faq-item">
+      <strong>是否需要注册才能浏览内容？</strong>
+      <p>大部分赛事数据和统计页面无需登录即可直接查看。部分社区互动功能（如发布评论）需要注册账户。注册时请使用有效的电子邮箱。</p>
+    </div>
+    <div class="faq-item">
+      <strong>数据来源是否可靠？</strong>
+      <p><a href="https://sites-bsports.com">B体育</a> 的数据来自合作数据供应商及公开体育组织接口，平台会进行基础校验，但不排除因传输延迟或接口波动导致的偏差。关键决策请以官方体育组织数据为准。</p>
+    </div>
+    <div class="faq-item">
+      <strong>移动端访问体验如何？</strong>
+      <p>平台采用自适应布局，在手机与平板设备上均可获得清晰的信息展示。建议保持浏览器为最新版本，以获得更好的性能与安全支持。</p>
+    </div>
+    <div class="faq-item">
+      <strong>是否提供多语言界面？</strong>
+      <p>当前界面以中文为主，部分数据与术语保留英文原文。平台暂未提供完整的语言切换功能，但核心数据字段均配有中文释义。</p>
+    </div>
+  </section>
+
+  <!-- 访问提醒 / 简明指南部分 -->
+  <div class="tip-note" id="tips">
+    <p>🔍 访问时注意：<a href="https://sites-bsports.com">B体育</a> 作为信息展示平台，不涉及任何形式的博彩、投注或资金交易。请合理分配时间，并结合多方信息源进行判断。</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>内容基于公开信息整理 · 仅供一般参考 · 不构成任何担保或建议</p>
+  <p>© B体育 简明指南 · 非官方页面</p>
+</footer>
+
+</body>
+</html>
